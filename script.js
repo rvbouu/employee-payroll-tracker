@@ -1,46 +1,50 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
-// Stores employee objects in an array
-let employeesInfo = [];
-
 // Collect employee data
 const collectEmployees = function() {
-  // Stores inputted data from users into objects
-  let employee = {};
-
-  // Collects first name, last name, and salary of employee
-  employee.firstName = prompt(`Enter first name:`);
-  employee.lastName = prompt(`Enter last name:`);
-  employee.salary = parseInt(prompt(`Enter salary:`), 10);
+  // Empty array to store employee objects
+  let employeesArray = [];
   
-  // Adds employee object to employeesInfo array 
-  employeesInfo.push(employee);
-  
-  // Asks user if they would like to add more or stop
-  let addMore = confirm(`Do you want to add another employee?`);
+  // Sets addMore variable default to true
+  let addMore = true;
 
-  // Loops collectEmployee function until user stops
   while(addMore){
-    collectEmployees();
-    if(addMore === false){
-      break;
-    }break;
+    // Empty employee object
+    let employee = {};
+
+    // Collects data for employee object
+    employee.firstName = prompt(`Enter first name:`);
+    employee.lastName = prompt(`Enter last name:`);
+    employee.salary = parseInt(prompt(`Enter salary:`), 10);
+
+    // Adds employee object to employeesArray
+    employeesArray.push(employee);
+
+    // Asks user if they want to continue
+    // Reassigns addMore variable depending on user answer
+    addMore = confirm(`Do you want to add another employee?`)
   }
 
-  // Displays employees on screen after loop ends
-  displayEmployees(employeesInfo);
+  // Displays employee table on screen
+  displayEmployees(employeesArray);
+
+  // Returns an array of objects in the console
+  return(employeesArray);
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
-  employeesArray = employeesInfo;
+  // Sets totalSalary variable to 0
   let totalSalary = 0;
+
+  // Assigns length variable the length of the array
   let length = employeesArray.length;
 
+  // Finds each instance of salary in each object in the array and adds it to totalSalary
   employeesArray.forEach(({salary})=> totalSalary += salary);
 
+  // Finds the average salary and rounds it
   let average = Math.floor(totalSalary/length);
 
   console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${average}.00`);
@@ -49,7 +53,7 @@ const displayAverageSalary = function(employeesArray) {
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // assigns employeesArray to global array element
- employeesArray = employeesInfo;
+//  employeesArray = employeesInfo;
 
  // randomizer that will select an employee from the array
  const randomEmployee = employeesArray[Math.floor(Math.random()*employeesArray.length)];
