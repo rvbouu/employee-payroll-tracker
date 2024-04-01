@@ -47,7 +47,7 @@ const displayAverageSalary = function(employeesArray) {
   // Finds the average salary and rounds it
   let average = Math.floor(totalSalary/length);
 
-  // Displays message in the console log
+  // Displays amount of employees and average salary in console
   console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${average}.00`);
 }
 
