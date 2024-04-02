@@ -26,9 +26,6 @@ const collectEmployees = function() {
     addMore = confirm(`Do you want to add another employee?`)
   }
 
-  // Displays employee table on screen
-  displayEmployees(employeesArray);
-
   // Returns an array of objects in the console
   return(employeesArray);
 }
