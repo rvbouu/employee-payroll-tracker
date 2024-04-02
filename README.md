@@ -21,7 +21,8 @@ Once you have filled out all employees' information, you will be shown a table w
 
 ## Screenshot
 
-
+![Gif of webpage in action](./images/employee-tracker.gif)
 
 ## Deployed Application
 
+[Click here](https://rvbouu.github.io/employee-payroll-tracker/) to view the deployed version.
